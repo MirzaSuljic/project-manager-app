@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import { env } from './config/env.js'
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 import authRoutes from './routes/auth.routes.js'
+import taskRoutes from './routes/task.routes.js'
 
 export function createApp(): Express {
   const app = express()
@@ -27,6 +28,7 @@ export function createApp(): Express {
   })
 
   app.use('/api/auth', authRoutes)
+  app.use('/api/tasks', taskRoutes)
 
   app.use(notFoundHandler)
   app.use(errorHandler)
