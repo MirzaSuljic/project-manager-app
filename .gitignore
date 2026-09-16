@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Environment
+.env
+.env.*
+!.env.example
+
+# Local working docs (specs, plans) — not part of the public repo
+docs/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
