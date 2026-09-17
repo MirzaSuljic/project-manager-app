@@ -4,7 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tmp-pm-app</title>
+    <meta name="description" content="A full-stack task manager with authentication, filtering, and dark mode." />
+    <title>Task Manager</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('taskmanager.theme')
+          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+          document.documentElement.classList.toggle('dark', dark)
+        } catch (error) {
+          document.documentElement.classList.remove('dark')
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
