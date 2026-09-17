@@ -1,7 +1,51 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --app-bg: oklch(0.985 0.003 255);
+  --app-surface: oklch(1 0 0);
+  --app-line: oklch(0.92 0.005 255);
+  --app-ink: oklch(0.24 0.02 265);
+  --app-ink-muted: oklch(0.55 0.02 265);
+  --app-accent: oklch(0.55 0.17 265);
+  --app-on-accent: oklch(0.99 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --app-bg: oklch(0.19 0.015 265);
+  --app-surface: oklch(0.24 0.018 265);
+  --app-line: oklch(0.34 0.02 265);
+  --app-ink: oklch(0.96 0.005 265);
+  --app-ink-muted: oklch(0.73 0.015 265);
+  --app-accent: oklch(0.74 0.14 265);
+  --app-on-accent: oklch(0.19 0.02 265);
+}
+
+@theme inline {
+  --color-app: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-line: var(--app-line);
+  --color-ink: var(--app-ink);
+  --color-ink-muted: var(--app-ink-muted);
+  --color-accent: var(--app-accent);
+  --color-on-accent: var(--app-on-accent);
+}
+
 html,
 body,
 #root {
   height: 100%;
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--app-ink);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
 }
